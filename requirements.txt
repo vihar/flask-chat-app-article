@@ -1,0 +1,7 @@
+Flask==0.12.2
+flask-socketio
+eventlet==0.17.4
+gunicorn==18.0.0
+flask-sqlalchemy
+psycopg2
+
