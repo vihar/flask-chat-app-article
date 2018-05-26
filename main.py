@@ -1,30 +1,24 @@
 from flask import Flask, render_template
-from flask_socketio import SocketIO, send
+from flask_socketio import SocketIO
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'vnkdjnfjknfl1232#'
 socketio = SocketIO(app)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def sessions():
     return render_template('session.html')
 
 
-def messageRecived(methods=['GET', 'POST']):
+def messageReceived(methods=['GET', 'POST']):
     print('message was received!!!')
-
-
-@socketio.on('message')
-def handle_message(message, methods=['GET', 'POST']):
-    print('received message: ' + message)
-    send(message, broadcast=True)
 
 
 @socketio.on('my event')
 def handle_my_custom_event(json, methods=['GET', 'POST']):
-    print('recived my event: ' + str(json))
-    socketio.emit('my response', json, callback=messageRecived)
+    print('received my event: ' + str(json))
+    socketio.emit('my response', json, callback=messageReceived)
 
 
 if __name__ == '__main__':
