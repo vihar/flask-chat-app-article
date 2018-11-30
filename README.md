@@ -11,7 +11,9 @@ Code for the article published on medium. Corrections are welcome :)
 - Writing Flask view
 - Flask Socket calls and Message Handling
 - Integrating SocketJS in Flask Templates 
-- To run the server
+
+To run the server
+
     pip install -r "requirements.txt"
     python main.py
 
